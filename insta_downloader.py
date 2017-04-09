@@ -146,11 +146,18 @@ class App():
 			self.error_flag = True
 
 if __name__ == '__main__':
+	# Username
 	username = raw_input('Enter Your Insta username: ')
+	
+	# Password
 	password = getpass.getpass('Enter Password: ')
+	
+	# Target username
 	target_username = raw_input('Enter target username: ')
+	
+	# path to save images 
 	path = os.path.join(os.path.expanduser('~'), 'Downloads')
-	print "Enter the path by default is your Download Directory Do you want to enter y/n"
+	print "Enter the path by default Download Directory, Do you want to enter y/n"
 	y = raw_input()
 	if y.upper() == 'Y':
 		path = raw_input('Enter the path')
