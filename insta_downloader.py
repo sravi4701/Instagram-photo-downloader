@@ -17,19 +17,29 @@ class App():
 		self.target_username = target_username
 		self.path = path
 		self.error_flag = False
+
+		# defining the driver
 		self.driver = webdriver.Chrome(os.path.join(os.path.join(os.path.expanduser('~'), 'Downloads'), 'chromedriver'))
+		
+		# Getting the instagram homepage		
 		self.driver.get('https://www.instagram.com')
+		
 		self.path = os.path.join(self.path, target_username)
 		time.sleep(3)
+
+		# Login page
 		if(self.error_flag == False):
 			self.log_in()
 		
+		# Open target Profile
 		if(self.error_flag == False):
 			self.open_target_profile()
 		
+		# Scroll to full page of target profile
 		if(self.error_flag == False):
 			self.scroll_target_profil()
 		
+		# Start Downloading the image
 		if(self.error_flag == False):
 			if not os.path.exists(self.path):
 				os.makedirs(self.path)
@@ -125,6 +135,7 @@ class App():
 			print("Couldn't find the target profile")
 			self.error_flag = True
 
+	# Login to instagram
 	def log_in(self):
 		try:
 			log_in_button = self.driver.find_element_by_link_text('Log in')
