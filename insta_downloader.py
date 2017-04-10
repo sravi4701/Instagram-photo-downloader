@@ -96,6 +96,7 @@ class App():
 				print("Something went wrong while downloading", file_name)
 			time.sleep(1)
 
+	# Method to scroll through the entire photos
 	def scroll_target_profil(self):
 		try:
 			post = self.driver.find_element_by_xpath("//span[@class='_bkw5z']").text
