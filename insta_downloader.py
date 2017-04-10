@@ -70,7 +70,9 @@ class App():
 		caption_path = os.path.join(self.path, 'captions')
 		self.caption_in_excel_file(images, caption_path)
 
+	# method to download all images
 	def download_target_image(self):
+		# make a soup of target profile page
 		soup = BeautifulSoup(self.driver.page_source, 'lxml')
 		images = soup.findAll('img', src=True)
 		print('Images found : ', len(images))
@@ -144,9 +146,9 @@ class App():
 			log_in_button.click()
 			
 			try:
-				username_field = self.driver.find_element_by_xpath("//input[@placeholder='Username']")
+				username_field = self.driver.find_element_by_xpath("//input[@name='username']")
 				username_field.send_keys(self.username)
-				password_field = self.driver.find_element_by_xpath("//input[@placeholder='Password']")
+				password_field = self.driver.find_element_by_xpath("//input[@name='password']")
 				password_field.send_keys(self.password)
 				password_field.submit()
 				time.sleep(5)
