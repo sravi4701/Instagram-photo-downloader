@@ -125,6 +125,7 @@ class App():
 			print("Couldn't find the post")
 			self.error_flag = True
 	
+	# Method to open target profile
 	def open_target_profile(self):
 		try:
 			self.driver.find_element_by_xpath("//input[@placeholder='Search']").send_keys(self.target_username)
